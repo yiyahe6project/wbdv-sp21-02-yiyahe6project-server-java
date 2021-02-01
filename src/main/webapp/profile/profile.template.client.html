@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet"/>
+    <meta charset="UTF-8">
+    <title>Profile</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Profile</h1>
+
+        <div class="alert alert-success" role="alert">
+            Profile successfully saved
+        </div>
+
+        <div class="mb-3 row">
+            <label for="username"
+                   class="col-sm-2 col-form-label">
+                Username
+            </label>
+            <div class="col-sm-10">
+                <input type="text"
+                       placeholder="johnny"
+                       title="Please type your username"
+                       value="Alice"
+                       readonly
+                       class="form-control"
+                       id="username">
+            </div>
+        </div>
+
+        <div class="mb-3 row">
+            <label for="phone"
+                   class="col-sm-2 col-form-label">
+                Phone
+            </label>
+            <div class="col-sm-10">
+                <input type="tel"
+                       class="form-control"
+                       id="phone"
+                       pattern="[(][0-9]{2}[)][\s][0-9]{4,5}[-][0-9]{4}$"
+                       placeholder="(999) 999-9999">
+            </div>
+        </div>
+
+        <div class="mb-3 row">
+            <label for="email"
+                   class="col-sm-2 col-form-label">
+                Email
+            </label>
+            <div class="col-sm-10">
+                <input type="email"
+                       class="form-control"
+                       id="email"
+                       placeholder="alice@wonderfulland.com">
+            </div>
+        </div>
+
+        <div class="mb-3 row">
+            <label for="role"
+                   class="col-sm-2 col-form-label">
+                Role
+            </label>
+            <div class="col-sm-10">
+                <select id="role"
+                        class="form-control">
+                    <option>Faculty</option>
+                    <option>Student</option>
+                    <option>Admin</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="mb-3 row">
+            <label for="dob"
+                   class="col-sm-2 col-form-label">
+                Date of Birth
+            </label>
+            <div class="col-sm-10">
+                <input type="date"
+                       placeholder="mm/dd/yyyy"
+                       class="form-control"
+                       id="dob">
+            </div>
+        </div>
+
+        <div class="mb-3 row">
+            <label class="col-sm-2 col-form-label"></label>
+            <div class="col-sm-10">
+                <a class="btn btn-success btn-block">
+                    Update
+                </a>
+            </div>
+        </div>
+
+        <div class="mb-3 row">
+            <label class="col-sm-2 col-form-label"></label>
+            <div class="col-sm-10">
+                <a class="btn btn-danger btn-block"
+                   href="../index.html">
+                    Logout
+                </a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

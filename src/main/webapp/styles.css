@@ -1,0 +1,26 @@
+.wbdv-sticky-nav-bar {
+    padding-bottom: 10px;
+    position: fixed;
+    width: 100%;
+    z-index: 2;
+}
+
+.container {
+    padding-top: 58px;
+    overflow: auto
+
+}
+
+.color-red {
+    color:red;
+}
+
+.color-green {
+    color:green;
+}
+.align-right {
+    float:left;
+}
+.align-right {
+    float:right;
+}

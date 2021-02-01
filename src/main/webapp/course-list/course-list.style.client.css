@@ -1,0 +1,38 @@
+body {
+    overflow: auto;
+    background-color: #EAEAEA;
+}
+
+.add-course {
+    position:absolute;
+    bottom: 10px;
+    right: 10px;
+}
+
+
+.course-category {
+    padding-top: 230px;
+    z-index: 1;
+}
+.fa-file {
+    padding-right: 8px;
+}
+
+.category-block {
+    font-size: medium;
+    padding: 10px
+}
+
+.content-block {
+    background-color: white;
+    padding: 10px
+
+}
+/*.col-3 {*/
+/*    .d-none;*/
+/*    .d-sm-block*/
+/*}*/
+
+::-webkit-input-placeholder {
+    font-style: italic;
+}

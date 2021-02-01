@@ -1,0 +1,11 @@
+.editor-nav-bar-font {
+    color:red;
+    align-content: center;
+}
+.course-title {
+    display: inline-block;
+    padding: 10px;
+}
+.course-tab {
+    color: white;
+}
