@@ -4,51 +4,51 @@
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet"/>
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
     <link href="./course-editor.style.client.css" rel="stylesheet"/>
+    <link href="../styles.css" rel="stylesheet">
 
     <meta charset="UTF-8">
     <title>Course Editor</title>
 </head>
 <body>
 
-    <div class="container">
-        <div class="row navbar navbar-dark bg-dark text-white justify-content-between">
+    <div class="container container-fluid">
+        <div class="row navbar navbar-dark bg-dark justify-content-between">
             <div class="col-4">
-                <i class="fas fa-times"></i>
-                <span class="course-title">CS5610-WebDev</span>
+                <i class="fas fa-times fa-2x color-grey"></i>
+                <span class="course-title text-white">CS5610-WebDev</span>
             </div>
             <div class="col-8">
                 <ul class="nav nav-tabs bg-dark justify-content-between">
                     <li class="nav-item">
-                        <a class="nav-link course-tab" href="#">Build</a>
+                        <a class="nav-link" href="#">Build</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#">Pages</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link course-tab active" href="#">Pages</a>
+                        <a class="nav-link" href="#">Theme</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link course-tab" href="#">Theme</a>
+                        <a class="nav-link" href="#">Store</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link course-tab" href="#">Store</a>
+                        <a class="nav-link" href="#">Apps</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link course-tab" href="#">Apps</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link course-tab" href="#">Settings</a>
+                        <a class="nav-link" href="#">Settings</a>
                     </li>
                     <li class="nav-item d-flex">
-                        <a class="nav-link course-tab disabled" href="#" tabindex="-1" aria-disabled="true">
-                            <i class="fas fa-plus-circle"></i>
+                        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">
+                            <i class="fas fa-plus text-white"></i>
                         </a>
                     </li>
                 </ul>
             </div>
         </div>
-        <br/>
 
-        <div class="row">
+        <div class="row course-main">
 
-            <div class="module-list col-4 border p-2 h-100">
+            <div class="module-list col-4 bg-dark-black">
                 <ul class="list-group">
                     <li class="list-group-item">
                         Module 1 - jQuery
@@ -79,19 +79,19 @@
                         <i class="fas fa-times float-right"></i>
                     </li>
                     <li class="list-group-item">
-                        <i class="fas fa-plus float-right"></i>
+                        <i class="fas fa-plus fa-2x float-right"></i>
                     </li>
                 </ul>
             </div>
 
 
-            <div class="module-content col-8">
+            <div class="col-8">
                 <ul class="nav nav-pills justify-content-left">
                     <li class="nav-item">
                         <a class="nav-link" href="#">Topic 1</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" href="#">Topic 2</a>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#">Topic 2</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Topic 3</a>

@@ -1,11 +1,72 @@
-.editor-nav-bar-font {
-    color:red;
-    align-content: center;
-}
+
 .course-title {
     display: inline-block;
-    padding: 10px;
+    padding: 10px 0px 10px 20px;
+    font-size: 1.5rem;
 }
-.course-tab {
+.nav-tabs {
+    border-bottom:0px
+}
+.nav-tabs > li {
+    font-size: 1.2rem;
+    text-decoration: none;
+}
+
+.nav-tabs > li > a {
+    color: gray;
+}
+.nav-tabs > li.active {
+    background-color: #181818
+}
+
+.bg-dark-black {
+    background-color: #181818;
+}
+
+.bg-medium-black {
+    background-color: #696969;
+}
+
+.bg-light-black {
+    background-color: gray;
+}
+
+
+.nav-pills > li {
+    background-color: gray;
+    margin-right: 20px;
+}
+.nav-pills > li.active {
+    background-color: #343a40
+}
+
+.nav-pills > li > a {
+    color: white
+}
+.course-main .nav-pills{
+    padding: 20px 0;
+}
+.module-list {
+    min-height: 100vh;
+    height: 100%;
+}
+
+.module-list > ul {
+    padding-top: 10px;
+}
+
+.module-list > ul li:not(:last-child) {
+    background-color: gray;
+    margin: 10px;
     color: white;
+}
+
+.module-list > ul li:last-child {
+    background-color: transparent;
+    margin: 10px;
+    color: white;
+}
+
+.module-list > ul li.active {
+    background-color: #007bff;
 }
