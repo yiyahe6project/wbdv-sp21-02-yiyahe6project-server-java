@@ -29,14 +29,18 @@ function createUser() {
         lastname: $lastnameFld.val(),
         role: $roleFld.val()
     }
-    userService.createUser(newUser)
-        .then(function (actualUser) {
-            users.push(actualUser)
-            renderUsers(users)
-            $('form[name=wbdv-input-fields]').get(0).reset();
+    if (newUser.username === "" || newUser.password == "" || newUser.firstname == "" ||
+        newUser.lastname === "") {
+        alert("empty input is not allowed!")
+    } else {
+        userService.createUser(newUser)
+            .then(function (actualUser) {
+                users.push(actualUser)
+                renderUsers(users)
+                $('form[name=wbdv-input-fields]').get(0).reset();
 
-        })
-
+            })
+    }
 }
 
 var selectedUser = null
@@ -57,14 +61,18 @@ function updateUser() {
     selectedUser.firstname = $firstnameFld.val()
     selectedUser.lastname = $lastnameFld.val()
     selectedUser.role = $roleFld.val()
-    userService.updateUser(selectedUser._id, selectedUser)
-        .then(status => {
-            var index = users.findIndex(user => user._id === selectedUser._id)
-            users[index] = selectedUser
-            renderUsers(users)
-            $('form[name=wbdv-input-fields]').get(0).reset();
-        })
-
+    if (selectedUser.username === "" || selectedUser.password == "" || selectedUser.firstname == "" ||
+        selectedUser.lastname === "") {
+        alert("empty input is not allowed!")
+    } else {
+        userService.updateUser(selectedUser._id, selectedUser)
+            .then(status => {
+                var index = users.findIndex(user => user._id === selectedUser._id)
+                users[index] = selectedUser
+                renderUsers(users)
+                $('form[name=wbdv-input-fields]').get(0).reset();
+            })
+    }
 
 }
 
