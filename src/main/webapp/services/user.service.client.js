@@ -1,4 +1,4 @@
-function CourseServiceClient() {
+function UserServiceClient() {
   this.createCourse = createCourse;
   this.findAllCourses = findAllCourses;
   this.findCourseById = findCourseById;
