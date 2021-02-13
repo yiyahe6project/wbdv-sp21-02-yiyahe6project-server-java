@@ -2,108 +2,115 @@ var $tableRows
 var $createBtn
 var $updateBtn
 
-var $titleFld
-var $sectionFld
-var $seatsFld
-var $semesterFld
+var $usernameFld
+var $passwordFld
+var $firstnameFld
+var $lastnameFld
+var $roleFld
 
-var courseService = new CourseServiceClient()
+var userService = new UserServiceClient()
 
-var courses = [
-    {title: "CS4550", section: "02", seats: 23, semester: "Spring"},
-    {title: "CS2345", section: "03", seats: 34, semester: "Spring"},
-    {title: "CS3456", section: "04", seats: 45, semester: "Spring"},
-    {title: "CS5610", section: "05", seats: 56, semester: "Spring"},
-    {title: "CS5200", section: "06", seats: 67, semester: "Spring"},
-]
-
-function deleteCourse(event) {
-    var button = $(event.target)
-    var index = button.attr("id")
-    var id = courses[index]._id
-    courseService.deleteCourse(id)
-        .then(function (status) {
-            courses.splice(index, 1)
-            renderCourses(courses)
-        })
-}
-
-function createCourse() {
-    // alert("create course")
-    var newCourse = {
-        title: $titleFld.val(),
-        section: $sectionFld.val(),
-        seats: $seatsFld.val(),
-        semester: $semesterFld.val()
-    }
-
-    courseService.createCourse(newCourse)
-        .then(function (actualCourse) {
-            courses.push(actualCourse)
-            renderCourses(courses)
-        })
-}
-
-var selectedCourse = null
-function selectCourse(event) {
+function deleteUser(event) {
     var id = $(event.target).attr("id")
     console.log(id)
-    selectedCourse = courses.find(course => course._id === id)
-    $titleFld.val(selectedCourse.title)
-    $seatsFld.val(selectedCourse.seats)
-    $semesterFld.val(selectedCourse.semester)
-}
-
-function updateCourse() {
-    selectedCourse.title = $titleFld.val()
-    selectedCourse.semester = $semesterFld.val()
-    selectedCourse.seats = $seatsFld.val()
-    courseService.updateCourse(selectedCourse._id, selectedCourse)
-        .then(status => {
-            var index = courses.findIndex(course => course._id === selectedCourse._id)
-            courses[index] = selectedCourse
-            renderCourses(courses)
+    userService.deleteUser(id)
+        .then(function (status) {
+            users.splice(id, 1)
+            renderUsers(users)
         })
 }
 
-function renderCourses(courses) {
+function createUser() {
+    // alert("create user")
+    var newUser = {
+        username: $usernameFld.val(),
+        password: $passwordFld.val(),
+        firstname: $firstnameFld.val(),
+        lastname: $lastnameFld.val(),
+        role: $roleFld.val()
+    }
+    userService.createUser(newUser)
+        .then(function (actualUser) {
+            users.push(actualUser)
+            renderUsers(users)
+            $('form[name=wbdv-input-fields]').get(0).reset();
+
+        })
+
+}
+
+var selectedUser = null
+function selectUser(event) {
+    var id = $(event.target).attr("id")
+    // console.log(id)
+    selectedUser = users.find(user => user._id === id)
+    $usernameFld.val(selectedUser.username)
+    $passwordFld.val(selectedUser.password)
+    $firstnameFld.val(selectedUser.firstname)
+    $lastnameFld.val(selectedUser.lastname)
+    $roleFld.val(selectedUser.role)
+}
+
+function updateUser() {
+    selectedUser.username = $usernameFld.val()
+    selectedUser.password = $passwordFld.val()
+    selectedUser.firstname = $firstnameFld.val()
+    selectedUser.lastname = $lastnameFld.val()
+    selectedUser.role = $roleFld.val()
+    userService.updateUser(selectedUser._id, selectedUser)
+        .then(status => {
+            var index = users.findIndex(user => user._id === selectedUser._id)
+            users[index] = selectedUser
+            renderUsers(users)
+            $('form[name=wbdv-input-fields]').get(0).reset();
+        })
+
+
+}
+
+function renderUsers(users) {
     $tableRows.empty()
-    for(var i=0; i<courses.length; i++) {
-        var course = courses[i]
+    for(var i=0; i<users.length; i++) {
+        var user = users[i]
         $tableRows
             .prepend(`
-      <tr>
-          <td>${course.title}</td>
-          <td>${course.section}</td>
-          <td>${course.seats}</td>
-          <td>${course.semester}</td>
-          <td>
-              <button id="${i}" class="neu-delete-btn">Delete</button>
-              <button id="${course._id}" class="wbdv-select-btn">Select</button>
-          </td>
-      </tr>
+        <tr>
+            <td class="wbdv-username">${user.username}</td>
+            <td class="wbdv-password">${"*".repeat(user.password.length)}</td>
+            <td class="wbdv-first-name">${user.firstname}</td>
+            <td class="wbdv-last-name">${user.lastname}</td>
+            <td class="wbdv-role">${user.role}</td>
+            <td class="wbdv-actions">
+                <span class="pull-right">
+                    <i class="fa-2x fas fa-search icon-invisible"></i>
+                    <i id="${i}" class="fa-2x fa fa-times wbdv-delete"></i>
+                    <i id="${user._id}" class="fa-2x fa fa-pencil wbdv-edit"></i>
+                </span>
+            </td>
+        </tr>
       `)
     }
-    $(".neu-delete-btn").click(deleteCourse)
-    $(".wbdv-select-btn").click(selectCourse)
+    $(".wbdv-delete").click(deleteUser)
+    $(".wbdv-edit").click(selectUser)
 }
 
 function main() {
 
-    $tableRows = jQuery("#table-rows")
-    $createBtn = $(".jga-create-btn")
-    $updateBtn = $(".wbdv-update-btn")
+    $tableRows = jQuery(".table-rows")
+    $createBtn = $(".wbdv-create")
+    $updateBtn = $(".wbdv-update")
 
-    $titleFld = $(".wbdv-title-fld")
-    $seatsFld = $(".wbdv-seats-fld")
-    $sectionFld = $(".wbdv-section-fld")
-    $semesterFld = $(".wbdv-semester-fld")
+    $usernameFld = $(".username-fld")
+    $passwordFld = $(".password-fl")
+    $firstnameFld = $(".firstname-fld")
+    $lastnameFld = $(".lastname-fld")
+    $roleFld = $(".role-fld")
 
-    $updateBtn.click(updateCourse)
-    $createBtn.click(createCourse)
-    courseService.findAllCourses().then(function (actualCourses) {
-        courses = actualCourses
-        renderCourses(courses)
+    $updateBtn.click(updateUser)
+    $createBtn.click(createUser)
+    userService.findAllUsers().then(function (actualUsers) {
+        users = actualUsers
+        renderUsers(users)
     })
 }
 $(main)
