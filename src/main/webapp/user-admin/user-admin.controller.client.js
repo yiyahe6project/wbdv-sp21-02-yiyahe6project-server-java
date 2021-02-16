@@ -11,11 +11,11 @@ var $roleFld
 var userService = new UserServiceClient()
 
 function deleteUser(event) {
-    var id = $(event.target).attr("id")
-    console.log(id)
+    var index = $(event.target).attr("id")
+    var id = users[index]._id
     userService.deleteUser(id)
         .then(function (status) {
-            users.splice(id, 1)
+            users.splice(index, 1)
             renderUsers(users)
         })
 }
